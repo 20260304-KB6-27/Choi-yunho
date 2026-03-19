@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 연습용 Composition</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 기본 : v-bind:속성명="데이터" -->
+      <input type="text" v-bind:value="message" /> <br />
+      <!-- 축약 : :속성명="데이터" -->
+      <img :src="imagePath" />
+      <!-- 속성이 여러 개인 경우 객체 형식으로 전달 -->
+      <h1 v-bind="{ class: h1Class, style: h1Style}">{{ h1Text }}</h1>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      /*
+      v-bind 디렉티브
+      - HTML 요소의 속성과 Vue의 데이터를 연결해주는 디렉티브
+      */
+      createApp({
+        setup() {
+          // 반응형 변수
+          message = ref('v-bind 디렉티브');
+          imagePath = ref(
+            'https://i.namu.wiki/i/HkXddAbypRkTfnkC6Zg8tt7WgseYiFc8lqY3GI3p9YkcrW6NPS9Eo4iT3GudyOz6qr5IUwArV3DZu1IydH9YbA.webp',
+          );
+          const h1Text = ref('v-bind 디렉티브');
+          const h1Class = ref('title-text');
+          const h1Style = ref({
+            color: 'blue',
+            fotntWeiht: 'bold',
+            textDecoration: 'underline',
+          });
+
+          return {
+            message,
+            imagePath,
+            h1Text,
+            h1Class,
+            h1Style,
+          };
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
