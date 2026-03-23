@@ -37,24 +37,27 @@
           });
 
           // 객체를 deep을 사용하여 감시할 경우 newVal과 oldVal이 동일한 Proxy객체를 참조함.
-          //   watch(
-          //     user,
-          //     (newVal, oldVal) => {
-          //       console.log(
-          //         `기존 사용자 : ${oldVal.age}, ${oldVal.email} -> 변경된 사용자 : ${newVal.age}, ${newVal.email}`,
-          //       );
-          //     },
-          //     {
-          //       deep: true, // 객체 내부속성까지 감시
-          //     },
-          //   );
-
           watch(
-            () => ({ ...user }), // 객체를 복사해서
+            user,
             (newVal, oldVal) => {
               console.log(
                 `기존 사용자 : ${oldVal.age}, ${oldVal.email} -> 변경된 사용자 : ${newVal.age}, ${newVal.email}`,
               );
+            },
+            {
+              deep: true, // 객체 내부속성까지 감시
+            },
+          );
+
+          watch(
+            () => ({ ...user.value }), // 객체를 복사해서
+            (newVal, oldVal) => {
+              console.log(
+                `기존 사용자 : ${oldVal.age}, ${oldVal.email} -> 변경된 사용자 : ${newVal.age}, ${newVal.email}`,
+              );
+            },
+            {
+              deep: true,
             },
           );
           return {
