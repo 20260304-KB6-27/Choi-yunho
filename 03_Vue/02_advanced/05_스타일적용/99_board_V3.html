@@ -19,7 +19,7 @@
       <div>
         <div class="row justify-content-center">
           <div class="col d-flex justify-content-center">
-            <div class="input-group" style="max-width: 400px">
+            <div class="input-group" style="max-width: 600px">
               <input
                 type="text"
                 class="form-control"
@@ -44,27 +44,49 @@
         <li
           class="post-item"
           v-for="post in sortPost"
-          :key="posts.no"
+          :key="post.no"
           @click="clickPost(post)"
         >
-          {{ post.no }}. {{ post.title}}
+          {{ post.no }}. {{ post.title }}
           <span class="arrow">
             {{ isPostOpen && selectedPost?.no === post.no ? arrow[0] : arrow[1]
             }}
           </span>
+
           <div
             class="post-content"
-            v-if="isPostOpen && selectedPost.no === post.no"
+            v-if="isPostOpen && selectedPost?.no === post.no"
+            @click.stop
           >
-            {{ selectedPost.title }}
-            <br />
-            <br />
-            {{ selectedPost.content }}
-            <br />
-            <br />
-            <br />
-            <button @click="deletePost(post.id)">삭제</button>
-            <button @click="isPostOpen = false">닫기</button>
+            <div v-if="isEditMode">
+              <input
+                type="text"
+                class="form-control mb-2"
+                v-model="editingTitle"
+              />
+              <textarea
+                class="form-control mb-2"
+                v-model="editingContent"
+                rows="3"
+              ></textarea>
+              <button @click.stop="updatePost(post.no)">수정 완료</button>
+              <button
+                @click.stop="isEditMode = false"
+                style="background-color: #888"
+              >
+                취소
+              </button>
+            </div>
+
+            <div v-else>
+              <strong>{{ selectedPost.title }}</strong>
+              <hr />
+              {{ selectedPost.content }}
+              <br /><br />
+              <button @click.stop="deletePost(post.no)">삭제</button>
+              <button @click.stop="editPost(post)">수정</button>
+              <button @click.stop="isPostOpen = false">닫기</button>
+            </div>
           </div>
         </li>
       </ul>
@@ -144,10 +166,16 @@
           const arrow = ref(['▲', '▼']);
           const selectedPost = ref(null);
           const isPostOpen = ref(false);
+          const isEditMode = ref(false);
 
           const clickPost = (post) => {
-            isPostOpen.value = !isPostOpen.value;
-            selectedPost.value = post;
+            if (selectedPost.value?.no === post.no) {
+              isPostOpen.value = !isPostOpen.value;
+            } else {
+              isPostOpen.value = true;
+              selectedPost.value = post;
+            }
+            isEditMode.value = false; // 새 글 클릭 시 수정 모드 리셋
           };
 
           const sortPost = computed(() => {
@@ -171,7 +199,6 @@
                 ? posts.value[posts.value.length - 1].no + 1
                 : 1;
 
-            // 배열에  추가
             posts.value.push({
               no: newPostID,
               title: newPostTitle.value,
@@ -190,6 +217,24 @@
             }
           };
 
+          const editingTitle = ref('');
+          const editingContent = ref('');
+
+          const editPost = (no) => {
+            isEditMode.value = true;
+            editingTitle.value = selectedPost.value.title;
+            editingContent.value = selectedPost.value.content;
+          };
+
+          const updatePost = (no) => {
+            const index = posts.value.findIndex((item) => item.no === no);
+            if (index !== -1) {
+              posts.value[index].title = editingTitle.value;
+              posts.value[index].content = editingContent.value;
+              isEditMode.value = false;
+            }
+          };
+
           return {
             posts,
             isPostOpen,
@@ -198,9 +243,14 @@
             newPostTitle,
             newPostContent,
             sortPost,
+            isEditMode,
+            editingTitle,
+            editingContent,
             clickPost,
             addPost,
             deletePost,
+            editPost,
+            updatePost,
           };
         },
       }).mount('#app');
