@@ -6,13 +6,13 @@
           type="text"
           class="form-control"
           v-model="title"
-          placeholder="제목"
+          placeholder="제목 입력"
         />
         <input
           type="text"
           class="form-control"
           v-model="content"
-          placeholder="내용"
+          placeholder="내용 입력"
         />
       </div>
       <button @click="submit">추가</button>

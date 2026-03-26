@@ -1,0 +1,18 @@
+<template>
+  <ul>
+    <SongListItem v-for="s in songs" :key="s.id" :song="s" q></SongListItem>
+  </ul>
+
+  <div>체크된 곡 수 : {{ doneCount }}</div>
+</template>
+
+<script setup>
+import { inject } from 'vue';
+import SongListItem from './SongListItem.vue';
+const Props = defineProps(['songs']);
+
+// 반응형 값 (computed)을 전달받음
+const doneCount = inject('doneCount');
+</script>
+
+<style scoped></style>

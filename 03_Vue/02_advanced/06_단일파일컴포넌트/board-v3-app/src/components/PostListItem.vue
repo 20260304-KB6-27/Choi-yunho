@@ -16,8 +16,8 @@
       </div>
       <div v-else>
         <p>{{ post.content }}</p>
-        <button @click="goEdit">수정</button>
         <button @click="$emit('delete', post.no)">삭제</button>
+        <button @click="goEdit">수정</button>
         <button @click="isView = false">닫기</button>
       </div>
     </div>

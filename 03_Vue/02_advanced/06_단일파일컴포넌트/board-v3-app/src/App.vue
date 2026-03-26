@@ -77,7 +77,6 @@ const posts = ref([
 ]);
 
 const addPost = (newPost) => {
-  // 새 번호 생성 로직은 부모가 처리하는 것이 더 안전합니다.
   const nextNo =
     posts.value.length > 0 ? Math.max(...posts.value.map((p) => p.no)) + 1 : 1;
   posts.value.push({ ...newPost, no: nextNo });
