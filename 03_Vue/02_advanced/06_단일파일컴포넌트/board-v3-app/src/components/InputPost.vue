@@ -27,7 +27,7 @@ const content = ref('');
 const emit = defineEmits(['add']);
 
 const submit = () => {
-  if (!title.value.trim() || !content.value.trim()) return;
+  if (title.value.trim() === '' || content.value.trim() === '') return;
   emit('add', { title: title.value, content: content.value });
   title.value = '';
   content.value = '';
