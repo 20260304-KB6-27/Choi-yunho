@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center mb-3">
+  <div class="row mb-3">
     <div class="col d-flex justify-content-center">
       <div class="input-group" style="max-width: 400px">
         <input
