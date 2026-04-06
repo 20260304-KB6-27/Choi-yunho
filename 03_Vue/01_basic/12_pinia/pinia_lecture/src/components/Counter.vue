@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { useCounterPersistStore } from '@/stores/persist/persist_counter.js';
+import { useCounterPersistStore } from '@/stores/persist/persist_counter';
 // import { useCounterStore } from '@/stores/counter';
 
 // State를 꺼낼때는 구조분해 할당을 하게 되면, 반응형이 깨짐

@@ -18,7 +18,7 @@ export const useLikePersistStore = defineStore(
     persist: {
       key: 'like-p', // storage에 저장될 key 이름 (기본값 store ID)
       storage: sessionStorage, // 기본값 : localStorage
-      pick: ['like'], // 저장하고 싶은 상태값 지정 가능
+      pick: ['likeCount'], // 저장하고 싶은 상태값 지정 가능
     },
   },
 );
