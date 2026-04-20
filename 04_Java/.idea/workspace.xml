@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea2dc233-cccf-4d52-a932-b6b9e575637e" name="Changes" comment="" />
+    <list default="true" id="ea2dc233-cccf-4d52-a932-b6b9e575637e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch04-inheritance/src/advance/ch07/exam/HttpServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch04-inheritance/src/advance/ch07/exam/HttpServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ch04-inheritance/src/advance/ch07/exam/HttpServletExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/ch04-inheritance/src/advance/ch07/exam/HttpServletExample.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,6 +26,7 @@
   &quot;keyToString&quot;: {
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -48,6 +53,8 @@
       <updated>1776227954020</updated>
       <workItem from="1776227955075" duration="44000" />
       <workItem from="1776313696023" duration="31000" />
+      <workItem from="1776657398509" duration="2571000" />
+      <workItem from="1776660014362" duration="66000" />
     </task>
     <servers />
   </component>
