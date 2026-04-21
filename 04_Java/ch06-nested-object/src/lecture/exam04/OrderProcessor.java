@@ -1,8 +1,6 @@
-package basic.exam04;
+package lecture.exam04;
 
 // 시나리오. 주문 처리기 (외부 클래스)와 할인 정책 (내부 인터페이스)
-
-import java.util.Dictionary;
 
 public class OrderProcessor {
 

@@ -1,4 +1,4 @@
-package basic.exam04;
+package lecture.exam04;
 
 public class OrderExample {
     public static void main(String[] args) {

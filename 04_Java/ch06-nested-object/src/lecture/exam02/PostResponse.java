@@ -1,4 +1,4 @@
-package basic.exam02;
+package lecture.exam02;
 
 /*
 * 시나리오. 게시판 API 응답 데이터를 담기 위한 클래스
