@@ -1,4 +1,4 @@
-package basic.exam02;
+package lecture.exam02;
 
 public class PostExample {
     public static void main(String[] args) {

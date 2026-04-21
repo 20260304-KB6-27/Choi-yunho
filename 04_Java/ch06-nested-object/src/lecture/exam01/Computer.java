@@ -1,4 +1,4 @@
-package basic.exam01;
+package lecture.exam01;
 
 /*
 * 시나리오. 내 컴퓨터의 CPU

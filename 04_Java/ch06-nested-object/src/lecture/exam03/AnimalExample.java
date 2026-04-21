@@ -1,4 +1,4 @@
-package basic.exam03;
+package lecture.exam03;
 
 public class AnimalExample {
     public static void main(String[] args) {
