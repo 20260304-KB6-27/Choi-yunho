@@ -18,7 +18,7 @@ public class Application {
         } catch (FileNotFoundException e) {
             System.out.println("파일을 찾지 못했습니다.");
         } finally {
-            fileInputStream.close();
+//            fileInputStream.close();
         }
 
         System.out.println("프로그램 종료");
