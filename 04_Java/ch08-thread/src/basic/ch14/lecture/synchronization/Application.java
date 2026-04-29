@@ -1,26 +1,24 @@
-package basic.ch14.lecture.syncronization;
-
-import javax.print.attribute.standard.RequestingUserName;
+package basic.ch14.lecture.synchronization;
 
 public class Application {
     public static void main(String[] args) {
 
-        Account account = new Account();
+//        Account account = new Account();
+        SafeAccount account = new SafeAccount(); // 동기화 적용
 
         // 작업스레드 정의
         Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                account.withdraw(600);
-                System.out.println("Thread 1 출금 후 잔액 : " + account.getBalance());
+                account.withdraw(300);
+
             }
         });
 
         Thread t2 = new Thread(new Runnable() {
             @Override
             public void run() {
-                account.withdraw(600);
-                System.out.println("Thread 2 출금 후 잔액 : " + account.getBalance());
+                account.withdraw(300);
             }
         });
 

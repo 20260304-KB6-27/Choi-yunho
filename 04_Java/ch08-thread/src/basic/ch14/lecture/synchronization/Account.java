@@ -1,4 +1,4 @@
-package basic.ch14.lecture.syncronization;
+package basic.ch14.lecture.synchronization;
 
 public class Account {
     // 공유 자원 -> 여러 스레드가 사용할 수 있는 자원1
